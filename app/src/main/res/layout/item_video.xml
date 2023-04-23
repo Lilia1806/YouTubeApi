@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="15dp"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/image_video"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints"
+        tools:src="@tools:sample/avatars" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/image_channel"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
+        android:background="?attr/colorSurface"
+        app:cardCornerRadius="80dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/image_video">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/app_name"
+            tools:src="@tools:sample/avatars" />
+    </com.google.android.material.card.MaterialCardView>
+
+    <TextView
+        android:id="@+id/name_video"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:maxLines="3"
+        android:text="The Beauty of Existence - Heart Touching Nasheed"
+        android:textColor="@color/black"
+        android:textSize="23sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/image_channel"
+        app:layout_constraintTop_toBottomOf="@+id/image_video"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/channel_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="viewsJul"
+        app:layout_constraintStart_toStartOf="@+id/name_video"
+        app:layout_constraintTop_toBottomOf="@+id/name_video"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/video_data"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:text="11/22/2020"
+        app:layout_constraintStart_toEndOf="@+id/channel_name"
+        app:layout_constraintTop_toBottomOf="@+id/name_video" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
