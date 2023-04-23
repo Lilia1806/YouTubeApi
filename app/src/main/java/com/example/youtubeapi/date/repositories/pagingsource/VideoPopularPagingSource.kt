@@ -8,13 +8,13 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-private const val VIDEO_STARTING_PAGE_INDEX = 1
+private const val VIDEO_STARTING_PAGE_INDEX = ""
 
 class VideoPopularPagingSource(private val videoPopularApiService: VideoPopularApiService) :
     PagingSource<String, VideoModel>() {
 
     override fun getRefreshKey(state: PagingState<String, VideoModel>): String? {
-        var current: String? = " "
+        var current: String? = ""
 
         val anchorPosition = state.anchorPosition
 
@@ -37,8 +37,7 @@ class VideoPopularPagingSource(private val videoPopularApiService: VideoPopularA
                 pageToken = startPage as String
             )
             val nextPage = if (response.items.isEmpty()) null else response.nextPageToken
-            val prevPage =
-                if (startPage == VIDEO_STARTING_PAGE_INDEX) null else response.prevPageToken
+            val prevPage = if (startPage == VIDEO_STARTING_PAGE_INDEX) null else response.prevPageToken
 
             LoadResult.Page(
                 data = response.items,

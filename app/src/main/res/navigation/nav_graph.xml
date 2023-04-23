@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/nav_graph.xml">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph.xml"
+    app:startDestination="@id/videoPopularFragment">
 
+    <fragment
+        android:id="@+id/videoCategoryFragment"
+        android:name="com.example.youtubeapi.ui.fragments.videoCategory.VideoCategoryFragment"
+        android:label="fragment_video"
+        tools:layout="@layout/fragment_video_category" />
+    <fragment
+        android:id="@+id/videoPopularFragment"
+        android:name="com.example.youtubeapi.ui.fragments.videoPopular.VideoPopularFragment"
+        android:label="fragment_video_popular"
+        tools:layout="@layout/fragment_video_popular" />
 </navigation>

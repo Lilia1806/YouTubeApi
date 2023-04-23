@@ -4,9 +4,9 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.example.android_4_lesson_1.databinding.ItemVideoBinding
 import com.example.youtubeapi.base.BaseDiffUtilItemCallback
+import com.example.youtubeapi.extension.setImage
 import com.example.youtubeapi.models.VideoModel
 
 class VideoPopularAdapter : PagingDataAdapter<VideoModel, VideoPopularAdapter.ViewHolder>(
@@ -15,11 +15,11 @@ class VideoPopularAdapter : PagingDataAdapter<VideoModel, VideoPopularAdapter.Vi
     inner class ViewHolder(private val binding: ItemVideoBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun onBind(videoModel: VideoModel) {
-            binding.nameVideo.text = videoModel.snippet.title
-            binding.channelName.text = videoModel.snippet.channelId
+            binding.imageVideo.setImage(videoModel.snippet.thumbnails.maxRes.url)
+            binding.channelName.text = videoModel.statistics.viewCount
             binding.videoData.text = videoModel.snippet.publishedAt
-            Glide.with(binding.imageVideo).load(videoModel.snippet.assignable)
-                .into(binding.imageView)
+            binding.nameVideo.text = videoModel.snippet.title
+            binding.peopleWatch.text = videoModel.statistics.viewCount
         }
     }
 

@@ -4,28 +4,25 @@ import com.example.youtubeapi.base.IBaseDiffModel
 import com.google.gson.annotations.SerializedName
 
 data class VideoModel(
-    @SerializedName("kind")
-    val kind: String,
-    @SerializedName("etag")
-    val etag: String,
     @SerializedName("id")
     val id: String,
-    @SerializedName("url")
-    override val url: String,
     @SerializedName("snippet")
-    val snippet: Snippet
+    val snippet: Snippet,
+    @SerializedName("statistics")
+    val statistics: Statistics,
+    override val url: String
 ) : IBaseDiffModel
 
 data class Statistics(
     @SerializedName("viewCount")
-    val viewCount: String,
+    val viewCount: String? = null,
     @SerializedName("likeCount")
-    val likeCount: String,
+    val likeCount: String
 )
 
 data class Thumbnails(
-    @SerializedName("high")
-    val high: High
+    @SerializedName("maxres")
+    val maxRes: MaxRes
 )
 
 data class High(
@@ -50,8 +47,12 @@ data class Snippet(
     val channelId: String,
     @SerializedName("title")
     val title: String,
+    @SerializedName("assignable")
+    val assignable: Boolean,
     @SerializedName("publishedAt")
     val publishedAt: String,
-    @SerializedName("assignable")
-    val assignable: Boolean
+    @SerializedName("channelTitle")
+    val channelTitle: String,
+    @SerializedName("thumbnails")
+    val thumbnails: Thumbnails
 )
